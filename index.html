@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>govnah's eye</title>
+    <link rel="shortcut icon" href="src/favicon.png" />
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.70/Build/Cesium/Cesium.js"></script>
+    <link href="./src/widgets.css" rel="stylesheet" />
+    <link href="./src/styles.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="cesiumContainer" class="fullSize"></div>
+    <div id="toolbar"></div>
+    <button class="q" id="north" style="display: none">
+      <img class="northImg" src="data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E %3Cpolygon fill='%23333333' points='6,9 10,1 14,9'/%3E %3Cpolygon fill='%23CCCCCC' points='6,11 10,19 14,11 '/%3E %3C/svg%3E">
+    </button>
+    <div id="tab">
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider" id="quality"></span>
+      </label>
+    </br>
+<div id="controlPanel">
+      <button class="q" id="toggle">
+        <i class="fas fa-eye"></i>
+      </button>
+      <button class="q" id="ortho">
+        <i class="fas fa-cube"></i>
+      </button>
+    </br>
+      <button class="q" id="pano">
+        <i class="fas fa-street-view"></i>
+      </button>
+      <button class="q" id="F1">
+        <i class="fas fa-child"></i>
+      </button>
+    </br>
+      <button class="q" id="snapshot">
+        <i class="fas fa-camera"></i>
+      </button>
+      <button class="q" id="base">
+        <i class="fas fa-map"></i>
+      </button>
+    </br>
+    <button class="q" id="blanc">
+      <i class="fas fa-tint-slash"></i>
+    </button>
+  </br>
+      <label class="switch" style="margin-top:8px;">
+        <input type="checkbox" />
+        <span class="slider" id="source"></span>
+      </label>
+      <div style="display:block; margin-top:4px; margin-bottom:4px; border-bottom: 1px dotted grey">
+        <!--<i id="alt">4000 m</i>-->
+        <input type="number" id="alt" placeholder="4000">
+        <i class="description">m</i>
+      </div></div>
+      
+      <h id="memo"></h>
+      <div id="palantire">
+        <svg width="40" height="40">
+          <polygon
+            id="XMLID_5_"
+            class="st0"
+            points="40,20.1 20,0.2 0,20.1 20,40 40,20.1 	"
+          />
+          <polyline
+            id="XMLID_4_"
+            class="st0"
+            points="10,37.3 2.7,10.1 10,2.9 37.3,10.1 	"
+          />
+          <polyline
+            id="XMLID_3_"
+            class="st0"
+            points="37.3,30 10,37.3 2.7,30 10,2.9 	"
+          />
+          <polyline
+            id="XMLID_2_"
+            class="st0"
+            points="2.7,10.1 30,2.9 37.3,10.1 30,37.3 	"
+          />
+          <polyline
+            id="XMLID_1_"
+            class="st0"
+            points="30,2.9 37.3,30 30,37.3 2.7,30 	"
+          />
+        </svg>
+      </div>
+    </div>
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <iframe
+          id="iFrame"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          style="border:0;"
+        ></iframe>
+      </div>
+    </div>
+<script src="src/light.js"></script>
+  </body>
+</html>
