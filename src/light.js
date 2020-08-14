@@ -38,6 +38,27 @@ viewer.scene.globe.baseColor = Cesium.Color.fromCssColorString("#6c6419"); //3f3
 //viewer.scene.debugShowFramesPerSecond = true;
 viewer.scene.postProcessStages.fxaa.enabled = true;
 
+var fs =
+  "uniform sampler2D colorTexture;\n" +
+  "varying vec2 v_textureCoordinates;\n" +
+  "uniform float scale;\n" +
+  "uniform vec3 offset;\n" +
+  "void main() {\n" +
+  "    vec4 color = texture2D(colorTexture, v_textureCoordinates);\n" +
+  "    gl_FragColor = vec4(color.rgb * scale + offset, 1.0);\n" +
+  "}\n";
+
+var colorFX = new Cesium.PostProcessStage({
+  fragmentShader: fs,
+  uniforms: {
+    scale: 1.1,
+    offset: function () {
+      return new Cesium.Cartesian3(-0.03, -0.017, 0.042);
+    }
+  }
+});
+viewer.scene.postProcessStages.add(colorFX);
+
 const lowQ = 2.5;
 const highQ = 1.5;
 var scene = viewer.scene;
@@ -182,14 +203,25 @@ bOrtho.addEventListener("click", function() {
 });
 
 let bToggle = document.getElementById("toggle");
-bToggle.addEventListener("click", function(e) {
+bToggle.addEventListener("click", function (e) {
   if (tileset.show === true) {
     e.currentTarget.className = "q-active";
     tileset.show = false;
+    viewer.scene.postProcessStages.remove(colorFX);
     scene.requestRender();
+    colorFX = new Cesium.PostProcessStage({
+      fragmentShader: fs,
+      uniforms: {
+        scale: 1.1,
+        offset: function () {
+          return new Cesium.Cartesian3(-0.03, -0.017, 0.042);
+        }
+      }
+    });
   } else {
     e.currentTarget.className = "q";
     tileset.show = true;
+    viewer.scene.postProcessStages.add(colorFX);
     scene.requestRender();
   }
 });
