@@ -1,114 +1,123 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>govnah's eye</title>
-    <link rel="shortcut icon" href="src/favicon.png" />
+    <title>Yan Pogutsa</title>
     <meta charset="UTF-8" />
-    <meta
+    <link rel="icon" href="src/favicon.svg" />
+    <!--<meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <script src="https://cesium.com/downloads/cesiumjs/releases/1.73/Build/Cesium/Cesium.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-    <link href="src/widgets.css" rel="stylesheet" />
-    <link href="src/styles.css" rel="stylesheet" />
+    />-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="./src/styles.css"
+      type="text/css"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   </head>
 
   <body>
-    <div id="cesiumContainer" class="fullSize"></div>
-    <div id="toolbar"></div>
-    <button class="q" id="north" style="display: none">
-      <img class="northImg" src="data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E %3Cpolygon fill='%23333333' points='6,9 10,1 14,9'/%3E %3Cpolygon fill='%23CCCCCC' points='6,11 10,19 14,11 '/%3E %3C/svg%3E">
-    </button>
-    <div id="tab">
-      <label class="switch">
-        <input type="checkbox" />
-        <span class="slider" id="quality"></span>
-      </label>
-    </br>
-<div id="controlPanel">
-      <button class="q" id="toggle">
-        <i class="fas fa-eye"></i>
-      </button>
-      <button class="q" id="ortho">
-        <i class="fas fa-cube"></i>
-      </button>
-    </br>
-      <button class="q" id="pano">
-        <i class="fas fa-street-view"></i>
-      </button>
-      <button class="q" id="F1">
-        <i class="fas fa-child"></i>
-      </button>
-    </br>
-      <button class="q" id="snapshot">
-        <i class="fas fa-camera"></i>
-      </button>
-      <button class="q" id="base">
-        <i class="fas fa-map"></i>
-      </button>
-    </br>
-    <button class="q" id="blanc">
-      <i class="fas fa-tint-slash"></i>
-    </button>
-  </br>
-      <label class="switch" style="margin-top:8px;">
-        <input type="checkbox" />
-        <span class="slider" id="source"></span>
-      </label>
-      <div style="display:block; margin-top:4px; margin-bottom:4px; border-bottom: 1px dotted grey">
-        <!--<i id="alt">4000 m</i>-->
-        <input type="number" id="alt" placeholder="4000">
-        <i class="description">m</i>
-      </div></div>
+    <div id="title">
+      <div id="iconContainer" class="titleBlock">
+        <img src="src/Cn2zYkAn_400x400.png" id="icon" />
+      </div>
+      <div id="nameContainer" class="titleBlock">
+        <div class="textBlock">
+        <div id="name">Yan Pogutsa</div>
+        <div id="bio">Web mapping</br>
+          Data visualization</br>
+          Transport planning</div>
+        </div>
+      </div>
+      <div id="contactsContainer" class="titleBlock">
+          <div class="textBlock">
+          <a href = "mailto: yanpogutsa@gmail.com" target="_blank">yanpogutsa@gmail.com</a>
+          <a href = "https://www.linkedin.com/in/yanpogutsa" target="_blank">linkedin</a>
+          <a href = "https://t.me/pogutsa" target="_blank">telegram</a>
+          </div>
+        </div>
+    </div>
+    <div id="works">
+      <div class="cardBlock">
+        <div class="card" data="webMap-1.png,webMap-1-01.jpg">
+            <img src="src/icons/webMap-1.jpg" class="cardIcon" />
+            <div class="cardTitle" data="JS,Mapbox,GIS">
+              Bus infrastructure app
+            </div>
+        </div>
+      </div>
       
-      <h id="memo"></h>
-      <div id="palantire">
-        <svg width="40" height="40">
-          <polygon
-            id="XMLID_5_"
-            class="st0"
-            points="40,20.1 20,0.2 0,20.1 20,40 40,20.1 	"
-          />
-          <polyline
-            id="XMLID_4_"
-            class="st0"
-            points="10,37.3 2.7,10.1 10,2.9 37.3,10.1 	"
-          />
-          <polyline
-            id="XMLID_3_"
-            class="st0"
-            points="37.3,30 10,37.3 2.7,30 10,2.9 	"
-          />
-          <polyline
-            id="XMLID_2_"
-            class="st0"
-            points="2.7,10.1 30,2.9 37.3,10.1 30,37.3 	"
-          />
-          <polyline
-            id="XMLID_1_"
-            class="st0"
-            points="30,2.9 37.3,30 30,37.3 2.7,30 	"
-          />
-        </svg>
+      <div class="cardBlock">
+        <div class="card" data="webMap-2.jpg,webMap-3.jpg,webMap-4.jpg,webMap-5.jpg">
+            <img src="src/icons/thumb-webMap-2.jpg" class="cardIcon" />
+            <div class="cardTitle" style="color:white" data="JS,Mapbox,Cesium JS,Unreal Engine,GIS">
+                App for a brief transport analysis
+            </div>
+        </div>
       </div>
-    </div>
-    <div id="myModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <iframe
-          id="iFrame"
-          width="100%"
-          height="100%"
-          frameborder="0"
-          style="border:0;"
-        ></iframe>
+
+      <div class="cardBlock">
+          <div class="card" data="city-load.png,city-flows.mp4">
+              <img src="src/icons/city-load.jpg" class="cardIcon" />
+              <div class="cardTitle" data="JS,Mapbox,Deck.GL,GIS">
+                  Interactive traffic flow visualization
+              </div>
+          </div>
+        </div>
+      <div class="cardBlock">
+          <div class="card" data="velo-map.jpg,velo-map2.jpg">
+              <img src="src/icons/thumb-velo-map.jpg" class="cardIcon" />
+              <div class="cardTitle" style="color:white" data="JS,Mapbox,GIS">
+                  Bike lanes planning app
+              </div>
+          </div>
+        
+     </div>
+     <div class="cardBlock">
+        <div class="card" data="ped-nav1.jpg,ped-nav2.jpg,ped-nav3.jpg,ped-nav4.jpg,ped-nav5.jpg,ped-nav6.jpg,ped-nav7.jpg,ped-nav8.jpg,ped-nav9.jpg,ped-nav10.jpg,ped-nav11.jpg,ped-nav12.jpg,ped-nav13.jpg,ped-nav14.jpg,ped-nav15.jpg,ped-nav16.jpg,ped-nav17.jpg">
+            <img src="src/icons/ped-nav.jpg" class="cardIcon" />
+            <div class="cardTitle" data="JS,Mapbox,Blender,GIS">
+                Rethinking of pedestrian navigation
+            </div>
+        </div>
       </div>
+      <div class="cardBlock">
+          <div class="card" data="rizh1.jpg,rizh2.jpg,rizh3.jpg,rizh4.jpg,rizh5.jpg,rizh6.jpg">
+              <img src="src/icons/rizh.jpg" class="cardIcon" />
+              <div class="cardTitle" data="GIS,SketchUp,AutoCAD,Illustrator,Photoshop">
+                  TOD concept proposal in Moscow
+              </div>
+          </div>
+      </div>
+
     </div>
-<script src="src/light.js"></script>
+    <div id="footer">
+      <span id="footerText">              
+        More info <a id="footerLink" href="https://github.com/yanpogutsa/yanpogutsa.github.io/raw/master/portfolio%202022%20en-1page-mini.pdf" target="_blank">here</a>
+      </span>
+    </div>
+    <div id="modalBackdrop"></div>
+<div id="modal">
+  <div id="modalClose">
+      <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      width="16px" height="16px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+   <path d="M14.4,1.6L14.4,1.6c-0.8-0.8-2-0.8-2.8,0L9.4,3.8c-0.8,0.8-2,0.8-2.8,0L4.4,1.6c-0.8-0.8-2-0.8-2.8,0l0,0
+     c-0.8,0.8-0.8,2,0,2.8l2.2,2.2c0.8,0.8,0.8,2,0,2.8l-2.2,2.2c-0.8,0.8-0.8,2,0,2.8l0,0c0.8,0.8,2,0.8,2.8,0l2.2-2.2
+     c0.8-0.8,2-0.8,2.8,0l2.2,2.2c0.8,0.8,2,0.8,2.8,0l0,0c0.8-0.8,0.8-2,0-2.8l-2.2-2.2c-0.8-0.8-0.8-2,0-2.8l2.2-2.2
+     C15.2,3.6,15.2,2.4,14.4,1.6z"/>
+   </svg>
+  </div>
+  <div id="modalContent"></div>
+  <div id="modalDescription"></div>
+</div>
+    <script src="src/index.js"></script>
   </body>
 </html>
