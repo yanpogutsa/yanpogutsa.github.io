@@ -279,8 +279,8 @@ body {
 
 #footerLink {
   text-decoration: none;
-  color: inherit;
-  border: 1px dashed white;
+  color: #ea738d;
+  border: 1px dashed #ea738d;
   padding-left: 0.2em;
   padding-right: 0.2em;
   border-radius: 0.3em;
